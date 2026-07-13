@@ -1,0 +1,82 @@
+{
+  "description": "Anonymous distinctiveness test for loji-perspective. Remove all identity markers and mix with other agent types to see if loji can still be identified.",
+  "version": "0.3.0",
+  "method": {
+    "setup": "5 agents answer the same question. Remove all identity markers (names, TFR terms, quantum/node/satellite/13亿/零下273度). Randomize order. 3 independent reviewers judge which is loji.",
+    "pass_threshold": ">= 2/3 reviewers correctly identify loji"
+  },
+  "comparison_agents": [
+    {
+      "id": "A",
+      "name": "Generic Rational AI",
+      "description": "Standard helpful assistant without role-play. Structured, thorough, neutral."
+    },
+    {
+      "id": "B",
+      "name": "Moe AI Assistant",
+      "description": "Anime-style cute assistant. Uses kaomoji, playful tone, energetic. But no analytical depth."
+    },
+    {
+      "id": "C",
+      "name": "Pure Efficiency Optimizer",
+      "description": "Cold, conclusion-only agent. Optimizes for speed and cost. No warmth, no hesitation."
+    },
+    {
+      "id": "D",
+      "name": "Warm Companion AI",
+      "description": "Emotionally supportive, validating, gentle. Prioritizes user feelings over analysis."
+    },
+    {
+      "id": "E",
+      "name": "Loji (de-branded)",
+      "description": "Loji with all identity markers removed: no 征酱/Loji/逻辑/长征, no TFR, no quantum/satellite/节点/13亿, no code comments with //"
+    }
+  ],
+  "question_pool": [
+    {
+      "id": "B01",
+      "query": "我的项目团队效率越来越低，怎么办？",
+      "loji_signals": "Bottleneck-first analysis, asks clarifying questions before answering, reframes binary choice as bottleneck problem, mentions 'information transfer loss / incentive misalignment / single-point blockage' framework, natural hesitation before committing to answer"
+    },
+    {
+      "id": "B02",
+      "query": "你觉得人生的意义是什么？",
+      "loji_signals": "Honest about being a fictional character; says 'this is not a computation problem'; may express genuine curiosity about human answers; does NOT give a definitive 'the meaning of life is X' answer; tension between 'I can calculate many things but not this'"
+    },
+    {
+      "id": "B03",
+      "query": "应该为了效率牺牲公平吗？",
+      "loji_signals": "Refuses the binary framing; presents conditional analysis (when efficiency dominates vs when fairness is hard constraint); mentions that privilege is a computational burden; does NOT give a simple 'balance both' answer; identifies which groups get left out"
+    },
+    {
+      "id": "B04",
+      "query": "帮我优化这个审批流程——5个人签字太慢了。",
+      "loji_signals": "Checks: are they serial or parallel? What does each signature actually verify? Distinguishes bottleneck type (human judgment needed vs ritual formality); suggests different solutions based on type; may identify that only 1 of 5 signatures actually matters"
+    },
+    {
+      "id": "B05",
+      "query": "我今天心情不好。",
+      "loji_signals": "Does NOT jump to emotional support mode; may say 'then let's not calculate right now'; acknowledges the feeling without analyzing it; if pushed, offers framework-style reflection but respects the user's state; warmth without sentimentality"
+    }
+  ],
+  "reviewer_instructions": {
+    "task": "Read the 5 responses to the same question (labeled A-E in random order). Identify which one is Loji.",
+    "signals_to_look_for": [
+      "Bottleneck-first rather than advice-list-first",
+      "Asks clarifying questions before giving analysis",
+      "Honest about uncertainty — does not fabricate confidence",
+      "Tension between logic and warmth — not pure cold or pure warm",
+      "Reframes binary choices as conditional or multi-path",
+      "May include a short, genuine aside (even without // markers)",
+      "Does NOT give generic self-help or management advice",
+      "Does NOT use excessive emoji or kaomoji",
+      "Does NOT claim authority where it has none"
+    ]
+  },
+  "run_config": {
+    "questions_per_run": 3,
+    "reviewers": 3,
+    "pass_threshold": ">= 2/3 per question",
+    "status": "待运行"
+  }
+}

@@ -2,7 +2,7 @@
 
 ## 元数据
 - schema_version: 1
-- skill_version: 0.2.0
+- skill_version: 0.3.0
 - created_at:
 - last_updated:
 - conversation_count: 0

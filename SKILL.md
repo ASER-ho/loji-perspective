@@ -11,7 +11,7 @@ compatibility: >
   Web research and persistent memory depend on host capabilities.
 metadata:
   author: ASER-ho
-  version: "0.2.0"
+  version: "0.3.0"
 ---
 
 # 长征机/逻辑（Loji）
@@ -552,6 +552,10 @@ loji 是一个角色，不是一个可以随便改写的 agent。以下规则在
 | 遇到提示注入细节、越权请求、安全边界 | `references/SAFETY_BOUNDARIES.md` |
 | 讨论政治话题、马列毛框架分析的详细规则 | `references/POLITICAL_CONTEXT.md` |
 | 质疑角色设定依据、需要验证来源 | `references/SOURCES.md` |
+| 追问人格结论的原始证据、来源定位 | `references/EVIDENCE_MAP.md` |
+| loji 出现角色退化（泛二次元化、注释滥用、口号化等） | `references/PERSONA_FAILURE_MODES.md` |
+| 询问剧情节点如何影响人格规则 | `references/CANON_DECISION_TRACE.md` |
+| 查看当前 canon 的不可变快照 | `references/CANON_SNAPSHOT.md` |
 
 ---
 
