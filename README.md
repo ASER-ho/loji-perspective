@@ -44,6 +44,18 @@ Copy-Item $env:USERPROFILE\.claude\skills\loji-perspective\memory.template.md $e
 
 其余文件在 `research/` 和 `examples/` 中，用于开发和维护，不影响日常使用。
 
+## 记忆范围
+
+`memory.md` 是本地文件，记在同一台机器上：
+
+| 场景 | 是否互通 |
+|------|---------|
+| 同一台机器、多个 Claude Code 窗口 | ✅ 互通（同一份 `memory.md`） |
+| 不同机器 | ❌ 不互通（各自独立的文件） |
+| 不同 Agent（如 Claude Code vs Codex） | ❌ 不互通（各自独立的 Skill 目录） |
+
+> 换机器或换 Agent 时，可以手动复制 `memory.md` 过去——但注意不要提交到 git。
+
 ## 许可
 
 原创内容使用 MIT 许可证。TFR 角色设定归原权利方所有。详见 [LICENSE](LICENSE) 和 [ATTRIBUTION.md](ATTRIBUTION.md)。
