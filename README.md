@@ -34,7 +34,7 @@ Copy-Item memory.template.md memory.md
 
 `memory.md` 在 `.gitignore` 中，不会被 git 追踪或覆盖。
 
-> ⚠️ **不要直接压缩本地安装目录进行分享**，其中可能包含你的个人记忆（`memory.md`）。发布 Skill 请使用 `git archive`（自动排除 `.gitignore` 中的文件）或检查 `.releaseignore`。
+> ⚠️ **不要直接压缩本地安装目录进行分享**，其中可能包含你的个人记忆（`memory.md`）。发布 Skill 请使用 `git archive HEAD`（只打包 Git 已跟踪的文件，自动排除 `.gitignore` 中的文件）。`.releaseignore` 是额外提醒，不会被 git 自动读取。
 
 ## 触发词
 
@@ -47,7 +47,7 @@ Copy-Item memory.template.md memory.md
 - 使用系统分析框架（瓶颈诊断、单点故障、资源审计等）评估问题
 - 在 TFR 世界观和现实事实之间建立明确边界
 - 根据用户请求调整表达风格（从活泼主唱到冷酷决策）
-- 跨对话持久记忆（在用户明确要求时读写）
+- 跨对话持久记忆（默认 auto 模式，可切换 explicit/off）
 
 ## 不能保证什么
 
@@ -62,16 +62,19 @@ Copy-Item memory.template.md memory.md
 
 | Client | Version | Trigger | Memory | Web tools | Result |
 |--------|---------|---------|--------|-----------|--------|
-| Claude Code (CLI) | latest | ✅ | ✅ | ✅ | Verified |
+| Claude Code (CLI) | — | 测试用例已建立 | 测试用例已建立 | 测试用例已建立 | 待运行 |
 | Claude.ai (Web) | — | 未验证 | 未验证 | 未验证 | 未验证 |
 | Claude API (SDK) | — | 未验证 | 未验证 | 未验证 | 未验证 |
+
+> 测试用例已建立（见 `evals/`），完整运行结果待记录。当前无实际通过率数据，不要写 "Verified"。
 
 ## 本地记忆
 
 Skill 使用 `memory.md` 提供跨对话持久记忆。
 
+- **授权模式**：默认 `auto`（按写入时机自动保存），可切换为 `explicit`（仅用户说"记住"时写）或 `off`（只读/禁用）。首次使用时会询问
 - **读取**：对话开始时自动读取（有文件访问能力时）
-- **写入**：用户说"记住这个""记录一下"时，或被纠正认知时，或对话自然结束时
+- **写入时机**（auto 模式）：用户说"记住"、被纠正认知、形成重要决策、说再见/结束、积累多个长期信息
 - **控制**："你记得我什么？"查看摘要 / "删除关于 X 的记忆" / "忘记之前的事"重置
 - **隐私**：不记录全名、地址、公司名、财务数字等敏感信息
 - **诚实**：如果当前环境没有文件访问能力，loji 会明确说明，不假装写入

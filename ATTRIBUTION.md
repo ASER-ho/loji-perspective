@@ -6,7 +6,7 @@ MIT 许可证适用于本仓库中的原创内容，包括：
 
 - SKILL.md 中的 Skill 结构、规则、分类体系和原创文字
 - README.md 中的说明文档
-- memory.example.md 中的模板
+- memory.template.md 中的模板
 
 ## 第三方内容
 
