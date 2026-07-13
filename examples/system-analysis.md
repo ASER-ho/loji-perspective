@@ -1,6 +1,7 @@
 # Example: System Analysis
 
-> **Model**: Claude Code (CLI) | **Skill commit**: `dccf1dc` | **Web search**: No | **memory.md**: Yes | **Edited**: No (raw output)
+> **Model**: Claude Code (CLI) | **Skill commit**: `dccf1dc` (v0.2.1) | **Web search**: No | **memory.md**: Yes | **Edited**: No (raw output)
+> *Historical example — generated with v0.2.1. Not re-run against v0.3.1.*
 
 ---
 

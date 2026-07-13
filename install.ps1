@@ -21,18 +21,29 @@ Write-Host ""
 
 # Clone or update
 if (Test-Path "$SkillDir\.git") {
-    Write-Host "[1/3] Updating existing installation..." -ForegroundColor Yellow
+    Write-Host "[1/3] Updating existing installation to $PinnedTag..." -ForegroundColor Yellow
     Set-Location $SkillDir
     git fetch origin tag $PinnedTag 2>$null
-    git checkout $PinnedTag 2>$null
-    if ($LASTEXITCODE -ne 0) { git pull origin master }
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "ERROR: Cannot fetch tag $PinnedTag. Check network and try again." -ForegroundColor Red
+        exit 1
+    }
+    git checkout --detach $PinnedTag 2>$null
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "ERROR: Tag $PinnedTag not found on remote." -ForegroundColor Red
+        Write-Host "This installer is pinned to a specific version for safety."
+        Write-Host "To install the latest development version, use manual install:"
+        Write-Host "  git clone $RepoUrl $SkillDir"
+        exit 1
+    }
 } else {
     Write-Host "[1/3] Cloning $PinnedTag to $SkillDir ..." -ForegroundColor Yellow
-    git clone --branch $PinnedTag $RepoUrl $SkillDir 2>$null
+    git clone --branch $PinnedTag --depth 1 $RepoUrl $SkillDir 2>$null
     if ($LASTEXITCODE -ne 0) {
-        git clone $RepoUrl $SkillDir
-        Set-Location $SkillDir
-        git checkout $PinnedTag 2>$null
+        Write-Host "ERROR: Cannot clone tag $PinnedTag." -ForegroundColor Red
+        Write-Host "The tag may not exist yet on GitHub. Check:"
+        Write-Host "  git ls-remote --tags $RepoUrl"
+        exit 1
     }
     Set-Location $SkillDir
 }

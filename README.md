@@ -19,13 +19,13 @@
 
 ```bash
 # Linux / macOS / WSL
-git clone https://github.com/ASER-ho/loji-perspective.git ~/.claude/skills/loji-perspective
+git clone --branch v0.3.1 --depth 1 https://github.com/ASER-ho/loji-perspective.git ~/.claude/skills/loji-perspective
 cp ~/.claude/skills/loji-perspective/memory.template.md ~/.claude/skills/loji-perspective/memory.md
 ```
 
 ```powershell
 # Windows (PowerShell)
-git clone https://github.com/ASER-ho/loji-perspective.git $env:USERPROFILE\.claude\skills\loji-perspective
+git clone --branch v0.3.1 --depth 1 https://github.com/ASER-ho/loji-perspective.git $env:USERPROFILE\.claude\skills\loji-perspective
 Copy-Item $env:USERPROFILE\.claude\skills\loji-perspective\memory.template.md $env:USERPROFILE\.claude\skills\loji-perspective\memory.md
 ```
 

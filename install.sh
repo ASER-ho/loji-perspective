@@ -18,16 +18,28 @@ echo ""
 
 # Clone or update
 if [ -d "$SKILL_DIR/.git" ]; then
-    echo "[1/3] Updating existing installation..."
+    echo "[1/3] Updating existing installation to $PINNED_TAG..."
     cd "$SKILL_DIR"
-    git fetch origin tag "$PINNED_TAG" 2>/dev/null || true
-    git checkout "$PINNED_TAG" 2>/dev/null || git pull origin master
+    git fetch origin tag "$PINNED_TAG" || {
+        echo "ERROR: Cannot fetch tag $PINNED_TAG. Check network and try again."
+        exit 1
+    }
+    git checkout --detach "$PINNED_TAG" || {
+        echo "ERROR: Tag $PINNED_TAG not found on remote."
+        echo "This installer is pinned to a specific version for safety."
+        echo "To install the latest development version, use manual install:"
+        echo "  git clone $REPO_URL $SKILL_DIR"
+        exit 1
+    }
 else
     echo "[1/3] Cloning $PINNED_TAG to $SKILL_DIR ..."
-    git clone --branch "$PINNED_TAG" "$REPO_URL" "$SKILL_DIR" 2>/dev/null || \
-    git clone "$REPO_URL" "$SKILL_DIR"
+    git clone --branch "$PINNED_TAG" --depth 1 "$REPO_URL" "$SKILL_DIR" || {
+        echo "ERROR: Cannot clone tag $PINNED_TAG."
+        echo "The tag may not exist yet on GitHub. Check:"
+        echo "  git ls-remote --tags $REPO_URL"
+        exit 1
+    }
     cd "$SKILL_DIR"
-    git checkout "$PINNED_TAG" 2>/dev/null || true
 fi
 
 # Initialize memory file

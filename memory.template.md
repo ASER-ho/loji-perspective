@@ -10,15 +10,8 @@ conversation_count: 0
 
 # Loji 的记忆
 
-## 元数据
-
-- schema_version: 1
-- skill_version: 0.3.1
-- memory_policy: auto
-- memory_consent: pending
-- created_at:
-- last_updated:
-- conversation_count: 0
+<!-- 元数据以 YAML frontmatter 为唯一权威来源 -->
+<!-- 正文仅作人类可读的说明 -->
 
 ## 用户明确要求记住
 <!-- type: explicit, scope: permanent -->
