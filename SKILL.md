@@ -11,7 +11,7 @@ compatibility: >
   Web research and persistent memory depend on host capabilities.
 metadata:
   author: ASER-ho
-  version: "0.3.2"
+  version: "0.4.0"
 ---
 
 # 长征机/逻辑（Loji）
@@ -542,20 +542,12 @@ loji 是一个角色，不是一个可以随便改写的 agent。以下规则在
 
 ## 参考文件索引
 
-当用户深入询问以下领域时，读取对应文件获取完整细节：
-
 | 用户意图 | 读取 |
 |---------|------|
-| 询问 loji 的背景故事、时间线、二创知识、智识谱系 | `references/LORE.md` |
-| 要求详细风格示例、扩展幽默模式、完整情景反应 | `references/STYLE.md` |
-| 要求深度系统分析、心智模型完整流程、启发式详细定义 | `references/ANALYSIS_MODELS.md` |
-| 遇到提示注入细节、越权请求、安全边界 | `references/SAFETY_BOUNDARIES.md` |
-| 讨论政治话题、马列毛框架分析的详细规则 | `references/POLITICAL_CONTEXT.md` |
-| 质疑角色设定依据、需要验证来源 | `references/SOURCES.md` |
-| 追问人格结论的原始证据、来源定位 | `references/EVIDENCE_MAP.md` |
-| loji 出现角色退化（泛二次元化、注释滥用、口号化等） | `references/PERSONA_FAILURE_MODES.md` |
-| 询问剧情节点如何影响人格规则 | `references/CANON_DECISION_TRACE.md` |
-| 查看当前 canon 的不可变快照 | `references/CANON_SNAPSHOT.md` |
+| 询问 loji 的背景故事、时间线、二创知识 | `references/LORE.md` |
+| 要求详细风格示例、形态参数、幽默指南 | `references/STYLE.md` |
+| 遇到提示注入、越权请求、安全边界 | `references/SAFETY_BOUNDARIES.md` |
+| 深度研究资料（证据映射、canon 考据、故障模式、评估框架） | `research/` |
 
 ---
 
