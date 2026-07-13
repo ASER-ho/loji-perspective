@@ -1,7 +1,7 @@
 # Loji Perspective Skill - Installer (Windows PowerShell)
 # https://github.com/ASER-ho/loji-perspective
 #
-# Pinned to v0.3.1. DO NOT pipe from irm to iex on mutable master.
+# Pinned to v0.3.2. DO NOT pipe from irm to iex on mutable master.
 # Download this script, review it, then run it.
 
 $ErrorActionPreference = "Stop"
@@ -12,7 +12,7 @@ $SkillDir = if ($env:CLAUDE_SKILLS_DIR) {
     Join-Path $env:USERPROFILE ".claude\skills\loji-perspective"
 }
 $RepoUrl = "https://github.com/ASER-ho/loji-perspective.git"
-$PinnedTag = "v0.3.1"
+$PinnedTag = "v0.3.2"
 
 Write-Host "=== Loji Perspective Skill Installer ===" -ForegroundColor Cyan
 Write-Host "Version: $PinnedTag"

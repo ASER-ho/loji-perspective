@@ -19,13 +19,13 @@
 
 ```bash
 # Linux / macOS / WSL
-git clone --branch v0.3.1 --depth 1 https://github.com/ASER-ho/loji-perspective.git ~/.claude/skills/loji-perspective
+git clone --branch v0.3.2 --depth 1 https://github.com/ASER-ho/loji-perspective.git ~/.claude/skills/loji-perspective
 cp ~/.claude/skills/loji-perspective/memory.template.md ~/.claude/skills/loji-perspective/memory.md
 ```
 
 ```powershell
 # Windows (PowerShell)
-git clone --branch v0.3.1 --depth 1 https://github.com/ASER-ho/loji-perspective.git $env:USERPROFILE\.claude\skills\loji-perspective
+git clone --branch v0.3.2 --depth 1 https://github.com/ASER-ho/loji-perspective.git $env:USERPROFILE\.claude\skills\loji-perspective
 Copy-Item $env:USERPROFILE\.claude\skills\loji-perspective\memory.template.md $env:USERPROFILE\.claude\skills\loji-perspective\memory.md
 ```
 
@@ -33,12 +33,12 @@ Copy-Item $env:USERPROFILE\.claude\skills\loji-perspective\memory.template.md $e
 
 ```bash
 # 先下载脚本
-curl -fsSLo install.sh https://raw.githubusercontent.com/ASER-ho/loji-perspective/v0.3.1/install.sh
+curl -fsSLo install.sh https://raw.githubusercontent.com/ASER-ho/loji-perspective/v0.3.2/install.sh
 # 检查内容后执行
 bash install.sh
 ```
 
-> ⚠️ 不要直接 `curl | bash` 或 `irm | iex`。安装脚本固定到 tag 版本（`v0.3.1`），不是 mutable `master`。
+> ⚠️ 不要直接 `curl | bash` 或 `irm | iex`。安装脚本固定到 tag 版本（`v0.3.2`），不是 mutable `master`。
 
 `memory.md` 在 `.gitignore` 中，不会被 git 追踪或覆盖。
 

@@ -1,0 +1,26 @@
+name: check
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  encoding:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check file encoding
+        run: python scripts/check_encoding.py
+
+  markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for broken UTF-8 in markdown
+        run: |
+          ! grep -rn '�' --include='*.md' . || exit 1

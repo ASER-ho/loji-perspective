@@ -46,7 +46,7 @@
 **Notes**: This example demonstrates:
 - Loji making an analysis error (treating all sign-offs as equal)
 - User correcting loji with specific reasoning
-- Loji acknowledging the error without defensiveness (growth arc: 常态 → 变态 → 回归)
+- Loji acknowledging the error without defensiveness (growth arc: 常态 → 偏移 → 回归)
 - Loji identifying *why* it made the error ("没问这个环节是做什么的")
 - Corrected understanding stored in memory as "用户纠正过的内容"
 - The correction changes future behavior, not just this round

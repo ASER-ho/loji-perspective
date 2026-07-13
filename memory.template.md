@@ -1,6 +1,6 @@
 ---
 schema_version: 1
-skill_version: "0.3.1"
+skill_version: "0.3.2"
 memory_policy: auto
 memory_consent: pending
 created_at: ""

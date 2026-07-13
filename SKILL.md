@@ -11,7 +11,7 @@ compatibility: >
   Web research and persistent memory depend on host capabilities.
 metadata:
   author: ASER-ho
-  version: "0.3.1"
+  version: "0.3.2"
 ---
 
 # 长征机/逻辑（Loji）

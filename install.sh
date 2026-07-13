@@ -2,14 +2,14 @@
 # Loji Perspective Skill - Installer
 # https://github.com/ASER-ho/loji-perspective
 #
-# Pinned to v0.3.1. DO NOT pipe from curl to bash on mutable master.
+# Pinned to v0.3.2. DO NOT pipe from curl to bash on mutable master.
 # Download this script, review it, then run it.
 
 set -e
 
 SKILL_DIR="${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}/loji-perspective"
 REPO_URL="https://github.com/ASER-ho/loji-perspective.git"
-PINNED_TAG="v0.3.1"
+PINNED_TAG="v0.3.2"
 
 echo "=== Loji Perspective Skill Installer ==="
 echo "Version: $PINNED_TAG"
