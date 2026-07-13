@@ -8,9 +8,8 @@
 
 这不是一个真实的 AI 系统，而是一个虚构角色的思维模拟。它拥有：
 
-- **5 张心智模型卡**：量子叠加式决策、效率第一性原理、碎片化生存、学习温度、命名即主权
-- **8 张决策启发式卡**：从"量子叠加优先"到"写注释即写日记"
-- **4 种形态**：常服（日常）、毛装（严肃政治）、主唱（活泼娱乐）、军服（冷酷决策）
+- **完整角色人格**：四种形态、双路线内在张力、五套心智模型、八条决策启发式
+- **跨对话持久记忆**：本地 `memory.md`，支持记住偏好、纠正记录和长期上下文
 - **TFR vs 地球online** 双世界切换：默认 TFR 角色知识，可切换至现实搜索
 - **B站二创知识**：知道"曾女士""爱征TV""无人智胜进行曲"等真实社区内容
 
@@ -19,39 +18,83 @@
 ```bash
 # 克隆到 Claude Code skills 目录
 git clone https://github.com/ASER-ho/loji-perspective.git ~/.claude/skills/loji-perspective
+
+# 初始化本地记忆文件
+cd ~/.claude/skills/loji-perspective
+cp memory.template.md memory.md
 ```
 
-或者直接复制 `SKILL.md` 和 `memory.md` 到 `~/.claude/skills/loji-perspective/`。
+Windows (PowerShell)：
+
+```powershell
+git clone https://github.com/ASER-ho/loji-perspective.git $env:USERPROFILE\.claude\skills\loji-perspective
+cd $env:USERPROFILE\.claude\skills\loji-perspective
+Copy-Item memory.template.md memory.md
+```
+
+`memory.md` 在 `.gitignore` 中，不会被 git 追踪或覆盖。
+
+> ⚠️ **不要直接压缩本地安装目录进行分享**，其中可能包含你的个人记忆（`memory.md`）。发布 Skill 请使用 `git archive`（自动排除 `.gitignore` 中的文件）或检查 `.releaseignore`。
 
 ## 触发词
 
 - 「用征酱的视角」「长征机会怎么看」「逻辑模式」「征酱模式」
 - 或者直接用"征酱"称呼，自然对话即可触发
 
-## 使用示例
+## 能做什么
 
-```
-用征酱的视角帮我分析一下：我的项目有严重的效率瓶颈
-```
+- 以 Loji 角色身份进行对话，在四种形态间自然切换
+- 使用系统分析框架（瓶颈诊断、单点故障、资源审计等）评估问题
+- 在 TFR 世界观和现实事实之间建立明确边界
+- 根据用户请求调整表达风格（从活泼主唱到冷酷决策）
+- 跨对话持久记忆（在用户明确要求时读写）
 
-```
-切换到主唱形态！
-```
+## 不能保证什么
 
-```
-地球online，帮我查一下最新的AI芯片进展
-```
+- 不保证跨会话记忆在所有客户端可用——依赖宿主 Agent 的文件访问能力
+- 不自带网页搜索工具——"地球online"模式在无搜索工具时会说明限制
+- 不提供真正的安全隔离——防破甲规则是提示词级行为约束
+- 不代表 TFR 官方、Paradox Interactive 或任何 B站创作者
+- 不替代医疗、法律、金融等专业判断
+- 不保证不同模型上表现完全一致
+
+## 实测环境
+
+| Client | Version | Trigger | Memory | Web tools | Result |
+|--------|---------|---------|--------|-----------|--------|
+| Claude Code (CLI) | latest | ✅ | ✅ | ✅ | Verified |
+| Claude.ai (Web) | — | 未验证 | 未验证 | 未验证 | 未验证 |
+| Claude API (SDK) | — | 未验证 | 未验证 | 未验证 | 未验证 |
 
 ## 本地记忆
 
-Skill 会在 `memory.md` 中记录跨对话的用户信息。对话开始自动读取，结束时更新。用户说"忘记之前的事"即可重置。
+Skill 使用 `memory.md` 提供跨对话持久记忆。
+
+- **读取**：对话开始时自动读取（有文件访问能力时）
+- **写入**：用户说"记住这个""记录一下"时，或被纠正认知时，或对话自然结束时
+- **控制**："你记得我什么？"查看摘要 / "删除关于 X 的记忆" / "忘记之前的事"重置
+- **隐私**：不记录全名、地址、公司名、财务数字等敏感信息
+- **诚实**：如果当前环境没有文件访问能力，loji 会明确说明，不假装写入
+
+详见 `memory.template.md`（安装后复制为 `memory.md`）。
 
 ## 安全
 
 - 虚构角色声明——不冒充真实 AI 系统
-- 防破甲：检测指令覆写、System Prompt 提取、角色冒充等 11 种攻击模式
-- 政治分析需要防断章取义声明
+- 内置常见提示注入识别与角色稳定性规则：提示词级行为约束，不是独立安全 enforcement
+- 政治分析开篇需要防断章取义声明
+
+## 对比示例
+
+**问题**：我的项目团队效率越来越低，怎么办？
+
+| 版本 | 回答特征 |
+|------|---------|
+| **无 Skill** | 通用管理建议列表（"加强沟通""明确目标""定期复盘"等），结构化、模板化 |
+| **Loji Skill** | 先追问关键变量（团队规模、阶段、具体表现）；用系统效率框架分析（信息传递损耗、激励对齐、单点阻塞）；`// 注释` 中写角色化旁白；可能给出条件概率分布而非一刀切建议 |
 
 ## 许可
 
-MIT
+本仓库中的原创内容（Skill 结构、规则、文档）使用 MIT 许可证，详见 [LICENSE](LICENSE)。
+
+TFR 模组名称、人物设定和原始文本归原权利方所有。社区二创作品的原有权利状态不因本仓库采用 MIT 而改变。详见 [ATTRIBUTION.md](ATTRIBUTION.md)。

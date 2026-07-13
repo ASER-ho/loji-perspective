@@ -1,0 +1,6 @@
+# 发布时排除以下文件
+memory.md
+memory.backup.*
+memory.md.tmp
+memory.md.bak.*
+*.tmp
