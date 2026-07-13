@@ -15,21 +15,23 @@
 
 ## 安装
 
-```bash
-# 克隆到 Claude Code skills 目录
-git clone https://github.com/ASER-ho/loji-perspective.git ~/.claude/skills/loji-perspective
+**一键安装**：
 
-# 初始化本地记忆文件
-cd ~/.claude/skills/loji-perspective
-cp memory.template.md memory.md
+```bash
+# Linux / macOS
+curl -fsSL https://raw.githubusercontent.com/ASER-ho/loji-perspective/master/install.sh | bash
 ```
 
-Windows (PowerShell)：
-
 ```powershell
-git clone https://github.com/ASER-ho/loji-perspective.git $env:USERPROFILE\.claude\skills\loji-perspective
-cd $env:USERPROFILE\.claude\skills\loji-perspective
-Copy-Item memory.template.md memory.md
+# Windows (PowerShell)
+irm https://raw.githubusercontent.com/ASER-ho/loji-perspective/master/install.ps1 | iex
+```
+
+**手动安装**：
+
+```bash
+git clone https://github.com/ASER-ho/loji-perspective.git ~/.claude/skills/loji-perspective
+cp ~/.claude/skills/loji-perspective/memory.template.md ~/.claude/skills/loji-perspective/memory.md
 ```
 
 `memory.md` 在 `.gitignore` 中，不会被 git 追踪或覆盖。
