@@ -58,16 +58,6 @@ Copy-Item memory.template.md memory.md
 - 不替代医疗、法律、金融等专业判断
 - 不保证不同模型上表现完全一致
 
-## 实测环境
-
-| Client | Version | Trigger | Memory | Web tools | Result |
-|--------|---------|---------|--------|-----------|--------|
-| Claude Code (CLI) | — | 测试用例已建立 | 测试用例已建立 | 测试用例已建立 | 待运行 |
-| Claude.ai (Web) | — | 未验证 | 未验证 | 未验证 | 未验证 |
-| Claude API (SDK) | — | 未验证 | 未验证 | 未验证 | 未验证 |
-
-> 测试用例已建立（见 `evals/`），完整运行结果待记录。当前无实际通过率数据，不要写 "Verified"。
-
 ## 本地记忆
 
 Skill 使用 `memory.md` 提供跨对话持久记忆。
