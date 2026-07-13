@@ -16,6 +16,8 @@ git clone https://github.com/ASER-ho/loji-perspective.git $env:USERPROFILE\.clau
 Copy-Item $env:USERPROFILE\.claude\skills\loji-perspective\memory.template.md $env:USERPROFILE\.claude\skills\loji-perspective\memory.md
 ```
 
+装完在新对话里说一句 **"征酱，你好"**——如果她回你带 `// 注释` 的话，就活了。
+
 ## 使用
 
 对话中直接叫"征酱"即可触发。也可以说"用征酱的视角分析……"。
