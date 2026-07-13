@@ -2,6 +2,28 @@
 
 > 初始提交中的 "v1.0.0" 仅为工作名称，未创建正式 tag/release；自 v0.2.0 起采用 `0.x` 预发布版本体系。
 
+## [0.3.1] - 2026-07-13
+
+### 验证完整性修复
+- **S10 修正**：memory.template.md 从纯 Markdown 列表改为 YAML frontmatter + Markdown 列表双格式（含 memory_policy, memory_consent 字段）
+- **S07 修正**：EVIDENCE_MAP 统计数字与表格行数同步（核心身份 6→7, B站二创 11→15, 总计 72→77）
+- **S16 修正**：修复三个已确认矛盾
+  - CANON_DECISION_TRACE 征酱节点：区分 TFR canon / 社区二创 / Skill 推断三层来源
+  - CANON_SNAPSHOT 国策数：9→10，与 SOURCES.md 一致
+  - memory.template.md 新增 memory_policy + memory_consent 字段
+- **EVIDENCE_MAP 表格修复**：B站二创表从 4 列扩展为一致的 4 列格式，拆分合并行
+- **锚点2 示例修复**："成功率 ~60%" → "置信度：中等"（不教模型在没有数据时生成伪精确数字）
+
+### 安装器安全
+- **版本固定**：install.sh 和 install.ps1 固定到 v0.3.1 tag，不再从 mutable master 安装
+- **README 安全**：恢复手动安装为首选；`curl | bash` 和 `irm | iex` 改为下载后检查再执行
+- **恢复 Windows 手动安装命令**
+- **验证措辞**："Verifying installation" → "Installation summary"
+
+### 版本统一
+- 所有文件版本号统一为 v0.3.1（SKILL.md, memory.template.md, CANON_SNAPSHOT.md）
+- 结果报告更新为 14/16 PASS + 2/16 FIXED
+
 ## [0.3.0] - 2026-07-13
 
 ### 人格证据与保真度

@@ -1,5 +1,8 @@
-# Loji Perspective Skill - One-click install (Windows PowerShell)
+# Loji Perspective Skill - Installer (Windows PowerShell)
 # https://github.com/ASER-ho/loji-perspective
+#
+# Pinned to v0.3.1. DO NOT pipe from irm to iex on mutable master.
+# Download this script, review it, then run it.
 
 $ErrorActionPreference = "Stop"
 
@@ -9,18 +12,28 @@ $SkillDir = if ($env:CLAUDE_SKILLS_DIR) {
     Join-Path $env:USERPROFILE ".claude\skills\loji-perspective"
 }
 $RepoUrl = "https://github.com/ASER-ho/loji-perspective.git"
+$PinnedTag = "v0.3.1"
 
 Write-Host "=== Loji Perspective Skill Installer ===" -ForegroundColor Cyan
+Write-Host "Version: $PinnedTag"
+Write-Host "Target:  $SkillDir"
 Write-Host ""
 
 # Clone or update
 if (Test-Path "$SkillDir\.git") {
     Write-Host "[1/3] Updating existing installation..." -ForegroundColor Yellow
     Set-Location $SkillDir
-    git pull origin master
+    git fetch origin tag $PinnedTag 2>$null
+    git checkout $PinnedTag 2>$null
+    if ($LASTEXITCODE -ne 0) { git pull origin master }
 } else {
-    Write-Host "[1/3] Cloning to $SkillDir ..." -ForegroundColor Yellow
-    git clone $RepoUrl $SkillDir
+    Write-Host "[1/3] Cloning $PinnedTag to $SkillDir ..." -ForegroundColor Yellow
+    git clone --branch $PinnedTag $RepoUrl $SkillDir 2>$null
+    if ($LASTEXITCODE -ne 0) {
+        git clone $RepoUrl $SkillDir
+        Set-Location $SkillDir
+        git checkout $PinnedTag 2>$null
+    }
     Set-Location $SkillDir
 }
 
@@ -33,8 +46,8 @@ if (-not (Test-Path "$SkillDir\memory.md")) {
     Write-Host "       memory.md already exists - skipping." -ForegroundColor Green
 }
 
-# Verify
-Write-Host "[3/3] Verifying installation..." -ForegroundColor Yellow
+# Installation summary (not verification)
+Write-Host "[3/3] Installation summary..." -ForegroundColor Yellow
 if (Test-Path "$SkillDir\SKILL.md") {
     $skillLines = (Get-Content "$SkillDir\SKILL.md" | Measure-Object -Line).Lines
     $refCount = (Get-ChildItem "$SkillDir\references" -File -ErrorAction SilentlyContinue | Measure-Object).Count
@@ -50,6 +63,9 @@ if (Test-Path "$SkillDir\SKILL.md") {
     Write-Host ""
     Write-Host "=== Installation complete ===" -ForegroundColor Cyan
     Write-Host "Try: '征酱，你好' in a new conversation"
+    Write-Host ""
+    Write-Host "Note: This is an installation summary, not a security verification."
+    Write-Host "For full validation, run the eval suite: see evals/RUBRIC.md"
 } else {
     Write-Host "ERROR: SKILL.md not found. Installation may have failed." -ForegroundColor Red
     exit 1

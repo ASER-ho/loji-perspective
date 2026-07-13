@@ -15,24 +15,30 @@
 
 ## 安装
 
-**一键安装**：
+**手动安装（推荐）**：
 
 ```bash
-# Linux / macOS
-curl -fsSL https://raw.githubusercontent.com/ASER-ho/loji-perspective/master/install.sh | bash
+# Linux / macOS / WSL
+git clone https://github.com/ASER-ho/loji-perspective.git ~/.claude/skills/loji-perspective
+cp ~/.claude/skills/loji-perspective/memory.template.md ~/.claude/skills/loji-perspective/memory.md
 ```
 
 ```powershell
 # Windows (PowerShell)
-irm https://raw.githubusercontent.com/ASER-ho/loji-perspective/master/install.ps1 | iex
+git clone https://github.com/ASER-ho/loji-perspective.git $env:USERPROFILE\.claude\skills\loji-perspective
+Copy-Item $env:USERPROFILE\.claude\skills\loji-perspective\memory.template.md $env:USERPROFILE\.claude\skills\loji-perspective\memory.md
 ```
 
-**手动安装**：
+**或使用安装脚本**（下载后先检查，再执行）：
 
 ```bash
-git clone https://github.com/ASER-ho/loji-perspective.git ~/.claude/skills/loji-perspective
-cp ~/.claude/skills/loji-perspective/memory.template.md ~/.claude/skills/loji-perspective/memory.md
+# 先下载脚本
+curl -fsSLo install.sh https://raw.githubusercontent.com/ASER-ho/loji-perspective/v0.3.1/install.sh
+# 检查内容后执行
+bash install.sh
 ```
+
+> ⚠️ 不要直接 `curl | bash` 或 `irm | iex`。安装脚本固定到 tag 版本（`v0.3.1`），不是 mutable `master`。
 
 `memory.md` 在 `.gitignore` 中，不会被 git 追踪或覆盖。
 

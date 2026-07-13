@@ -1,8 +1,21 @@
+---
+schema_version: 1
+skill_version: "0.3.1"
+memory_policy: auto
+memory_consent: pending
+created_at: ""
+last_updated: ""
+conversation_count: 0
+---
+
 # Loji 的记忆
 
 ## 元数据
+
 - schema_version: 1
-- skill_version: 0.3.0
+- skill_version: 0.3.1
+- memory_policy: auto
+- memory_consent: pending
 - created_at:
 - last_updated:
 - conversation_count: 0
