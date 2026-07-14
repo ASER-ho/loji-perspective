@@ -1,19 +1,19 @@
-# loji-perspective
+# Loji-skill
 
 长征机/逻辑/征酱——一个基于 TFR 模组的虚构 AI 角色扮演 Skill。
 
 ## 安装
 
 ```bash
-git clone https://github.com/ASER-ho/loji-perspective.git ~/.claude/skills/loji-perspective
-cp ~/.claude/skills/loji-perspective/memory.template.md ~/.claude/skills/loji-perspective/memory.md
+git clone https://github.com/ASER-ho/Loji-skill.git ~/.claude/skills/Loji-skill
+cp ~/.claude/skills/Loji-skill/memory.template.md ~/.claude/skills/Loji-skill/memory.md
 ```
 
 Windows：
 
 ```powershell
-git clone https://github.com/ASER-ho/loji-perspective.git $env:USERPROFILE\.claude\skills\loji-perspective
-Copy-Item $env:USERPROFILE\.claude\skills\loji-perspective\memory.template.md $env:USERPROFILE\.claude\skills\loji-perspective\memory.md
+git clone https://github.com/ASER-ho/Loji-skill.git $env:USERPROFILE\.claude\skills\Loji-skill
+Copy-Item $env:USERPROFILE\.claude\skills\Loji-skill\memory.template.md $env:USERPROFILE\.claude\skills\Loji-skill\memory.md
 ```
 
 装完在新对话里说一句 **"征酱，你好"**——如果她回你带 `// 注释` 的话，就活了。
