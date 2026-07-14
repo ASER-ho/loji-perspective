@@ -16,7 +16,7 @@ git clone https://github.com/ASER-ho/Loji-skill.git $env:USERPROFILE\.claude\ski
 Copy-Item $env:USERPROFILE\.claude\skills\Loji-skill\memory.template.md $env:USERPROFILE\.claude\skills\Loji-skill\memory.md
 ```
 
-装完在新对话里说一句 **"征酱，你好"**——如果她回你带 `// 注释` 的话，就活了。
+装完在新对话里说一句 **"征酱，你好"**——如果她用自然的语气回应你（不是普通助手的模板式回答），就说明 Skill 已生效。`// 注释` 是她的标志，但不会每次回复都出现。
 
 ## 使用
 
